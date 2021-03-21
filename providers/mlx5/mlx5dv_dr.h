@@ -982,7 +982,6 @@ struct dr_send_ring {
 	uint32_t		tx_head;
 	void			*buf;
 	uint32_t		buf_size;
-	struct ibv_wc		wc[MAX_SEND_CQE];
 	uint8_t			sync_buff[MIN_READ_SYNC];
 	struct ibv_mr		*sync_mr;
 };
