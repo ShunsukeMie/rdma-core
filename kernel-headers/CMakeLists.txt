@@ -24,6 +24,7 @@ publish_internal_headers(rdma
   rdma/rvt-abi.h
   rdma/siw-abi.h
   rdma/vmw_pvrdma-abi.h
+  rdma/virtio_rdma_abi.h
   )
 
 publish_internal_headers(rdma/hfi
@@ -71,6 +72,7 @@ rdma_kernel_provider_abi(
   rdma/rdma_user_rxe.h
   rdma/siw-abi.h
   rdma/vmw_pvrdma-abi.h
+  rdma/virtio_rdma_abi.h
   )
 
 publish_headers(infiniband
