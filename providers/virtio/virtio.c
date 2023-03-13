@@ -46,11 +46,19 @@
 static inline void writew(uint16_t val, volatile void *addr)
 {
     __sync_synchronize();
+#if defined(__x86_64__) || defined (__i386__)
     asm volatile(
         "movw %0,%1"
         :
         :"r" (val), "m" (*(volatile uint16_t *)addr)
     );
+#elif defined(__aarch64__)
+	asm volatile(
+	    "strh %w[val], [%[addr]]"
+		:
+		:[addr]"r"(addr), [val]"r"(val)
+		:);
+#endif
     __sync_synchronize();
 }
 
