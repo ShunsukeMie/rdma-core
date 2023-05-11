@@ -117,6 +117,7 @@ void vring_add_one(struct virtio_rdma_vring *vring,
     __sync_synchronize();
     vring->next_avail++;
     vring->ring.avail->idx = cpu_to_virtio16(vring->next_avail);
+    __sync_synchronize();
 }
 
 struct virtio_rdma_buf_pool_entry* vring_get_one(
